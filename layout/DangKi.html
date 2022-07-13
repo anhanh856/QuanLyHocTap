@@ -1,0 +1,126 @@
+<div class="row ">
+    <article class=" col-12 col-md-9 bg-light p-0">
+        <!-- ---------------Form đăng kí---------------- -->
+        <div class="card-header">Trang chủ > Đăng kí</div>
+        <div class="" ng-controller="dang_ki">
+            <div class="alert {{ isSuccess == true ? 'alert-success' : 'alert-danger' }}"
+            ng-show="message.length != 0">
+            {{ message }}
+            </div>
+            <form class="container" name="form_dk" >
+                
+                <div class="row mt-2">
+                    <div class="col-12 mt-3 ">
+                        <label for="name">Họ và tên</label>
+                        <input type="text" class="form-control" id="name" name="name"
+                            ng-model="student.fullname" minlength="4" required>
+                        <span class="text-danger" ng-hide="form_dk.name.$valid || form_dk.name.$untouched">Vui
+                            lòng
+                            nhập tên.</span>
+                        <span ng-show="form_dk.name.$error.minlength" class="text-danger">Tài khoản tối thiểu 4
+                            ký tự</span>
+                    </div>
+                    <div class="col-12 mt-3">
+                        <label for="password">Mật khẩu</label>
+                        <input type="password" class="form-control" id="password" name="password"
+                            ng-model="student.password" minlength="6" required>
+                        <span class="text-danger"
+                            ng-hide="form_dk.password.$valid || form_dk.password.$untouched">Vui lòng điền
+                            mật khẩu. </span>
+                        <span ng-show="form_dk.password.$error.minlength" class="text-danger">Mật khẩu tối thiểu
+                            6 ký tự</span>
+                    </div>
+                    <div class="col-12 mt-3">
+                        <label for="date">Ngày sinh</label>
+                        <input type="text" class="form-control" id="date" name="date"
+                            ng-model="student.birthday">
+                        <span class="text-danger" ng-hide="form_dk.date.$valid || form_dk.date.$untouched">Vui
+                            lòng điền
+                            ngày sinh </span>
+                    </div>
+                    <div class="col-12 mt-3">
+                        <label for="">Giới tính</label> <br>
+                        <input type="radio" name="gender" value="true" checked ng-model="student.gender"> Nam
+                        <input type="radio" name="gender" value="false" class="ms-3" ng-model="student.gender">
+                        Nữ
+                    </div>
+                    <div class="col-12 mt-3">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email" name="txtemail"
+                            ng-model="student.email" required />
+                        <div ng-hide="form_dk.txtemail.$untouched || form_dk.txtemail.$valid">
+                            <span ng-show="form_dk.txtemail.$error.required" class="text-danger">Vui lòng điền
+                                email</span>
+                            <span ng-show="form_dk.txtemail.$error.email" class="text-danger">Vui lòng nhập đúng
+                                định dạng email</span>
+                        </div>
+                    </div>
+                    <div class="col-12 mt-3">
+                        <label for="username">Tên đăng nhập</label>
+                        <input type="text" class="form-control" id="username" name="username"
+                            ng-model="student.username" required>
+                        <span class="text-danger"
+                            ng-hide="form_dk.username.$valid || form_dk.username.$untouched">Vui lòng điền
+                            tên dăng nhập </span>
+                    </div>
+
+                    <div class="col-12 mt-3 mt-3">
+                        <button class="btn btn-danger" ng-click="onFormSubmit($event)">
+                            <i class="fas fa-save"></i> Đăng kí
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <!-- --------Danh mục---------- -->
+    </article>
+    <aside class="col-md-3 bg-light">
+        <!-- --------Danh mục môn học---------- -->
+        <div class="poly-card">
+            <ul class="list-group mt-2 p-0">
+                <li class="list-group-item bg-light text-dark">
+                    <a class="text-dark text-decoration-none" data-bs-toggle="collapse" href="#collapseExample1"
+                        role="button" aria-expanded="false" aria-controls="collapseExample">
+                        <h5 style="color: #e03231; font-size: 15px;"> <i class="fas fa-list"></i> DANH SÁCH MÔN
+                            HỌC</h5>
+                    </a>
+                </li>
+                <div class="collapse" id="collapseExample1">
+                    <a href="#" class="list-group-item list-group-item-action">Lập trình Android nâng cao</a>
+                    <a href="#" class="list-group-item list-group-item-action">Xây dựng trang web</a>
+                    <a href="#" class="list-group-item list-group-item-action">Cơ sở dữ liệu</a>
+                    <a href="#" class="list-group-item list-group-item-action">SQL Server</a>
+                    <a href="#" class="list-group-item list-group-item-action">Internet Marketing</a>
+                    <a href="#" class="list-group-item list-group-item-action">Lập trình hướng dẫn đối tượng</a>
+                    <a href="#" class="list-group-item list-group-item-action">Lập trình PHP</a>
+                    <a href="#" class="list-group-item list-group-item-action">Điện toán đám mây</a>
+                    <a href="#" class="list-group-item list-group-item-action">Lập trình Android cơ bản</a>
+                    <a href="#" class="list-group-item list-group-item-action">Lập trình game 2D</a>
+                    <a href="#" class="list-group-item list-group-item-action">Thiết kế giao diện trên
+                        Android</a>
+                    <a href="#" class="list-group-item list-group-item-action">Java 1</a>
+                </div>
+            </ul>
+
+        </div>
+        <!-- -------------Danh mục thi-------------- -->
+        <div class="poly-card">
+            <ul class="list-group mt-2 p-0">
+                <li class="list-group-item bg-light text-dark">
+                    <a class="text-dark text-decoration-none" data-bs-toggle="collapse" href="#collapseExample2"
+                        role="button" aria-expanded="false" aria-controls="collapseExample">
+                        <h5 style="color: #e03231; font-size: 15px;"> <i class="fas fa-list"></i> DANH SÁCH THI
+                        </h5>
+                    </a>
+                </li>
+                <div class="collapse" id="collapseExample2">
+                    <a href="TrangThi.html" class="list-group-item list-group-item-action">Câu hỏi trắc
+                        nghiệm</a>
+
+                </div>
+            </ul>
+
+        </div>
+    </aside>
+
+</div>
